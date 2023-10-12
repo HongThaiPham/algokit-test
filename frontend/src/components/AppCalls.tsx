@@ -1,6 +1,6 @@
 import * as algokit from '@algorandfoundation/algokit-utils'
 import { TransactionSignerAccount } from '@algorandfoundation/algokit-utils/types/account'
-import { AppDetails } from '@algorandfoundation/algokit-utils/types/app-client'
+import { AppClientDeployCoreParams, AppDetails } from '@algorandfoundation/algokit-utils/types/app-client'
 import { useWallet } from '@txnlab/use-wallet'
 import { useSnackbar } from 'notistack'
 import { useState } from 'react'
@@ -53,7 +53,7 @@ const AppCalls = ({ openModal, setModalState }: AppCallsInterface) => {
     const deployParams = {
       onSchemaBreak: 'append',
       onUpdate: 'append',
-    }
+    } as AppClientDeployCoreParams
     await appClient.deploy(deployParams).catch((e: Error) => {
       enqueueSnackbar(`Error deploying the contract: ${e.message}`, { variant: 'error' })
       setLoading(false)
