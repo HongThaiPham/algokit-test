@@ -4,9 +4,9 @@ on:
   workflow_call:
     inputs:
       run-build:
-        required: true
+        required: false
         type: boolean
-        default: true
+        default: false
 
 jobs:
   checks:
